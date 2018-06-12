@@ -11,16 +11,21 @@
 
       alert("Tudo beleza!");
 
-     $("#aba1").click(function(){
-
-
-        $("#p1").show();
-        $("#p2").hide();
-        $("#p3").hide();
-
-        $("#aba1").show();
-        $("#aba2").hide();
-        $("#aba3").hide();
+      $("#aba1").click(function(){
+          $("#p2").hide();
+          $("#p3").hide();
+          $("#p1").fadeIn();
+        });
+        $("#aba2").click(function(){
+          $("#p1").hide();
+          $("#p3").hide();
+          $("#p2").fadeIn(1500);
+        });
+        $("#aba3").click(function(){
+          $("#p1").hide();
+          $("#p2").hide();
+          $("#p3").fadeIn();
+     
 
       });
     });
