@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Formulário para Curriculo</title>
+    <!-- Toda formatação de CSS se encontra no arquivo estiloativ5-->
+    <link rel="stylesheet" href="estiloativ5.css">
+    <!--Importando o jquery-->
+    <script src="js/jquery-3.3.1.min.js">   </script>
+    <script type="text/javascript">
+    //Aqui vai o código do jquery para esse formulario
+    $(document).ready(function(){
+      //vai esconder todos os conteudos das div´s  mostrando só  a
+    $("div.conteudo").hide();
+      //mostra a primeira aba
+    $("div.conteudo:first").show();
+      //aponta a aba selecionada
+     $("#abas a:first").addClass("selected");
+
+     //quando clicar no a da aba
+     $("#abas a").click(function(){
+       // oculta todas as abas
+       $("div.conteudo").hide();
+       // tira a seleção da aba atual
+       $("#abas a").removeClass("selected");
+
+    // adiciona a classe selected na selecionada atualmente
+    $(this).addClass("selected");
+    // mostra a aba clicada
+    $($(this).attr("href")).show();
+    // pra nao ir para o link
+    return false;
+   });
+
+    });
+    </script>
+
+
+  </head>
+  <body>
+<!-- -->
+<ul id="abas">
+  <li> <a href="#aba1" >Dados Pessoais</a> <br> <br> </li>
+  <li> <a href="#aba2"  >Dados de formação acadêmica</a> <br> <br> </li>
+  <li> <a href="#aba3" >Finalizar o cadastro</a> <br> <br> </li>
+</ul>
+      <div id="aba1" class="conteudo" >
+         <a name="aba1" ></a>
+     <form  class="fomr1" method="post" target="_blank" > <br>
+
+       <label>Nome</label > <br>
+       <input type="text" name="" value="" placeholder="Digite seu nome"> <br>
+
+       <label for="">Data de nascimento</label> <br>
+       <input type="date" name="" value="" > <br>
+
+       <label>RG</label  > <br>
+       <input type="text" name="" value="" maxlength="" placeholder="Insira seu RG"> <br>
+
+       <label>CPF</label> <br>
+       <input type="text" name="" value="" maxlength="11" placeholder="Insira seu CPF"> <br>
+
+       <label>Endereço</label > <br>
+       <input type="text" name="" value="" placeholder="R. João Alves" > <br>
+
+       <label for="">Telefone</label> <br>
+       <input type="text" name="" value="" maxlength="11" placeholder="DDD 0000-0000"> <br>
+
+       <label for="">Celular</label> <br>
+       <input type="text" name="" value="" maxlength="12" placeholder="DDD 90000-0000"> <br>
+     </form>
+   </div>
+
+<br>
+
+   <div id="aba2" class="conteudo" >
+      <a name="aba2" ></a>
+     <form class="fomr2"   action="index.html" method="post">
+
+       <label>Ensino básico</label> <br>
+       <input type="text" name="" value=""> <br>
+       <label>Ensino Superior</label> <br>
+       <input type="text" name="" value=""> <br>
+       <label>Especiliações</label> <br>
+       <input type="text" name="" value=""> <br>
+
+     </form>
+  </div>
+
+  <div id="aba3" class="conteudo" >
+    <a name="aba3" ></a>
+    <form class=""  action="index.html" method="post">
+
+      <label for="">E-mail</label> <br>
+      <input type="email" name="" value="" placeholder="joao@email.com.br"> <br>
+
+      <label for="">Senha</label> <br>
+      <input type="password" name="" value="" maxlength="8" placeholder="Maximo 8 caracteres"> <br>
+
+      <button type="submit" name="button"> Confirmar</button>
+
+
+    </form>
+
+  </div>
+
+
+
+  </body>
+</html>
