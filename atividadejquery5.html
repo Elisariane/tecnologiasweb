@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Formulário para Curriculo</title>
+    <!--Importando o jquery-->
+    <script src="js/jquery-3.3.1.js">   </script>
+    <!-- Impotar o css do bootstrap -->
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <!-- Importar o js do bootstrap -->
+    <script src="bootstrap/bootstrap.min.js" ></script>
+    <!-- Código do js usando o jquery -->
+    <script type="text/javascript">
+    //Aqui vai o código do jquery para esse formulario
+    $(document).ready(function(){
+
+    $("#alerta").hide();
+
+    $("div.conteudo").hide();   //vai esconder todos os conteudos das div´s
+
+    $("#abas a:first").addClass("selected");   //aponta a aba selecionada
+
+    $("#abas a").click(function(){             //quando clicar no a da aba
+
+    $("div.conteudo").hide();                 // oculta todas as abas
+
+    $("#abas a").removeClass("selected");      // tira a seleção da aba atual
+
+    $(this).addClass("selected");               // adiciona a classe selected na aba selecionada atualmente
+
+    $($(this).attr("href")).show();               // mostra a aba clicada
+
+    return false;                          // pra não tentar redirecionar para o link então retorna valor falso
+    });
+
+    $("input").blur(function(){
+        if($(this).val() == "")
+          {
+              $(this).css({"border-color" : "#F00", "padding": "2px"});
+          }
+     });
+
+   // Identificar o seu formulário
+  // coloque o event como parâmetro
+  $("form").submit( function(event){
+    // Para cada elemento que tem a classe obrigatório
+    $(".obrigatorio").each(function(){
+      // Executa este código para cada um dos elementos com a classe obrigatorio
+      // Verifica o valor (preenchido) no campo
+      if( $(this).val() == "" ){
+        // Evita o envio do formulário
+        event.preventDefault();      }
+    });
+
+  });
+  $("form").submit( function(event){
+    $(".obrigatorio").each(function(){
+          if( $(this).val() == "" ){
+
+       $("#alerta").show();
+
+
+      }
+    });
+
+  });
+
+    });
+    </script>
+
+
+  </head>
+  <body class="text-center">
+<!-- -->
+<div class="container-fluid "  align="center">
+
+
+  <h1 class="border-rounded border-primary shadow-sm p-3 mb-5 bg-warning rounded text-white font-weight-bold display-3 m-1.2 ">Cadastro de currículo</h1>
+    <div class=" col-sm-12">
+
+      <div id="alerta" class="alert  alert-danger col-sm-8">
+        Os campos com * são <b>obrigatórios</b>.
+        Preencha de forma correta!
+      </div>
+
+    <ul  class="list-group nav  " id="abas">
+      <li class=" nav-item media list-group-item-warning list-group-item-action m-1  " > <a class="nav-link  font-weight-bold" href="#aba1" ><img class=" img-fluid " src="https://image.flaticon.com/icons/svg/1008/1008231.svg" width="50" height="30"  alt="">   Dados Pessoais</a> <br> <br> </li>
+      <div id="aba1" class="conteudo form-group  font-weight-bold " >
+        <a name="aba1" ></a>
+        <br>
+        <form action="#" id="form " class="form " method="post" target="_blank" > <br>
+
+          <label>Nome*</label > <br>
+            <input class="form-control obrigatorio" type="text " required  name="nome" value="" placeholder="Digite seu nome" > <br>
+
+            <label for="">Gênero*</label> <br>
+            <input class="form-check-input position-static" type="radio" name="genero" value="f"> Feminino<br>
+
+            <input class="form-check-input position-static"  type="radio" name="genero" value="m"> Maculino<br> <br> <br>
+
+            <label for="">Data de nascimento</label> <br>
+            <input class="form-control obrigatorio" type="date" name="dtnasc" value="" > <br>
+
+            <label>RG*</label  > <br>
+              <input class="form-control obrigatorio" type="text" name="rg" value="" maxlength="" placeholder="Insira seu RG"> <br>
+
+              <label>CPF*</label> <br>
+              <input class="form-control obrigatorio" type="text" name="cpf" value="" maxlength="11" placeholder="Insira seu CPF"> <br>
+
+              <label>Endereço*</label > <br>
+                <input class="form-control obrigatorio"  type="text" name="endereco" value="" placeholder="R. João Alves" > <br>
+
+                <label for="">Telefone*</label> <br>
+                <input  class="form-control obrigatorio" type="text" name="fone" value="" maxlength="11" placeholder="DDD 0000-0000"> <br>
+
+                <label  for="">Celular*</label> <br>
+                <input class="form-control obrigatorio" type="text" name="cel" value="" maxlength="12" placeholder="DDD 90000-0000"> <br>
+              </form>
+            </div>
+
+      <li class=" nav-item media list-group-item-warning list-group-item-action m-1  " > <a class="nav-link   font-weight-bold" href="#aba2"  > <img class=" img-fluid" src="https://image.flaticon.com/icons/svg/1008/1008226.svg" width="50" height="30" alt="">   Dados de formação acadêmica</a> <br> <br> </li>
+
+      <div id="aba2" class="conteudo form-group  font-weight-bold " >
+         <a name="aba2" ></a>
+        <form id="form " class="form col-sm-12"   action="index.html" method="post">
+
+          <label>Ensino básico*</label> <br>
+          <input class="form-control " type="text" name="enbasico" value="">
+          <label  class=" mx-sm-3"> Ano de conclusão*</label>
+          <input class="form-control obrigatorio" type="text" name="anodeconclusa" value="">
+          <br><br> <br>
+          <label>Ensino Superior*</label> <br>
+          <input class="form-control  mx-sm-3" type="text" name="ensuper" value="">
+          <label  class=" mx-sm-3 "> Ano de conclusão*</label>
+          <input class="form-control obrigatorio  " type="text" name="anodeconclusa" value=""> <br> <br>
+          <label class=" mx-sm-3" >Especiliações</label>
+          <input class="form-control " type="text" name="especializacao" value="">
+          <label  class=" mx-sm-3 "> Ano de conclusão</label> <br>
+          <input class="form-control " type="text" name="anodeconclusa" value=""> <br> <br>
+        </form>
+        <br>
+     </div>
+
+     <li class=" nav-item media list-group-item-warning list-group-item-action m-1  " ><a class="nav-link   font-weight-bold" href="#aba3"  > <img class=" img-fluid" src="https://image.flaticon.com/icons/svg/1008/1008206.svg" width="50" height="30" alt="">Dados Profissionais</a> <br> <br> </li>
+     <div id="aba3" class="conteudo .form-group  font-weight-bold " >
+        <a name="aba3" ></a>
+       <form id="form " class="form col-sm-12"   action="index.html" method="post"> <br> <br> <br> <br>
+
+         <label class=" mx-sm-3"> Empresa*</label>
+         <input class="form-control obrigatorio" type="text" name="empresa" value="">
+         <label  class=" mx-sm-3"> Ano de entrada*</label>
+         <input class="form-control obrigatorio " type="text" name="anodeentrada" value="">
+         <label  class=" mx-sm-3"> Ano de saída*</label>
+         <input class="form-control obrigatorio" type="text" name="anodesaida" value="">
+         <label  class=" mx-sm-3"> Cargo*</label> <br>
+         <input class="form-control obrigatorio" type="text" name="cargo" value="">
+
+        <br> <br> <br> <br>
+
+
+        <label class=" mx-sm-3"> Empresa</label> <br>
+        <input class="form-control  " type="text" name="empresa" value="">
+        <label class=" mx-sm-3"> Ano de entrada</label> <br>
+        <input class="form-control " type="text" name="anodeentrada" value=""> <br>
+        <label class=" mx-sm-3"> Ano de saída</label> <br>
+        <input class="form-control" type="text" name="anodesaida" value=""> <br>
+        <label class=" mx-sm-3"> Cargo</label> <br>
+        <input class="form-control " type="text" name="cargo" value=""> <br>
+
+       </form>
+     </div>
+       <br>
+
+    <li class="nav-item media list-group-item-warning list-group-item-action m-1 "> <a class="nav-link  font-weight-bold" href="#aba4" > <img class="img-fluid" src="https://image.flaticon.com/icons/svg/1008/1008207.svg" width="50" height="30" alt="">Finalizar o cadastro</a> <br> <br> </li>
+          <br><br>
+
+          <div id="aba4" class="conteudo .form-group  font-weight-bold " >
+            <a name="aba4" ></a>
+            <form id="form "class=" form "  action="index.html" method="post">
+
+              <label for="">E-mail*</label> <br>
+              <input class="form-control obrigatorio" type="email" name="" value="" placeholder="jose123@email.com.br"> <br>
+
+              <label for="">Senha*</label> <br>
+              <input class="form-control obrigatorio" type="password" name="" value="" maxlength="8" placeholder="Maximo 8 caracteres"> <br>
+
+              <button id="btn" class="btn .text-black-50 btn-warning text-black" type="submit" name="button">Confirmar</button>
+
+
+            </form>
+
+  </div>
+</ul>
+
+<br><br>
+<br>
+
+
+  </body>
+</html>
