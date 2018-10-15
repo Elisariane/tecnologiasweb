@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Jquery Panorama Viwer</title>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- <script src="js/jquery-3.3.1.js"></script> -->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Toda importação necessária para que o plugin funcione -->
+    <script  src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script  src="js/jquery.panorama_viewer.js"></script>
+    <link href='css/panorama_viewer.css' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+<style media="screen">
+*{padding: 0;
+    margin:0;}
+body {
+     background: #F1f1f2;
+     text-align: left;
+     font-family: 'open sans';
+     position: relative;
+     margin: 0;
+
+   }
+
+  h2 {
+    font-size: 30px;
+    margin: .83em 0;
+
+  }
+  h1 {
+    font-size: 65px;
+    color: #696969;
+    }
+  .conteudo{
+      font-size: 20px;
+      font-family: 'open sans';
+      text-align: left;
+      color: #696969;
+
+  }
+
+
+
+</style>
+
+<script>
+	  $(document).ready(function(){
+      $(".panorama").panorama_viewer({
+        repeat: true
+      });
+		});
+
+</script>
+
+
+  </head>
+
+  <body>
+
+    <header>
+      <!-- Menu Fixo -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Jquery Panorama Viwer</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="https://github.com/peachananr/panorama_viewer" target="_blank">Documentação oficial</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Outros plugins</a>
+            </li>
+          </ul>
+          <form class="form-inline mt-2 mt-md-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Conteúdo do seu tutorial -->
+
+    <main  class="conteudo container ">
+      <br><br>
+      <h1 class="display-2"><strong>Jquery Panorama Viwer: Tutorial </strong></h1>
+      <br><br>
+
+       <h3 class="display-4 ">O que é?</h3>
+        É um plugin jquery com utilidade para fotos panorâmicas, de maneira bem simples mantem a largura normal das fotos panorâmicas e permite
+        que o usuário interaja "rolando" pela imagem. <br> <br>
+      <br>Compatibilidade: <img class="" src="https://upload.wikimedia.org/wikipedia/commons/8/87/Google_Chrome_icon_%282011%29.png" alt="Chrome"  style="width:45px;height:45px;">
+      <img class="" src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Firefox_Logo%2C_2017.png" alt="Firefox" style="width:45px;height:45px;">
+      <img class="" src="https://vignette.wikia.nocookie.net/borderlands/images/3/3c/Safari_logo.png/revision/latest?cb=20100208055147" alt="Safari" style="width:45px;height:45px;">
+      tanto em computadores quanto smartphones. Não existe compatibilidade  com o Internet Explorer.
+   <br> <br> <br>
+
+
+
+    <h5 class="display-4">Como o plugin funciona?</h5>
+  Em vez de ter um contêiner div com a imagem que se move quando você arrasta, é usado a abordagem de plano de fundo do CSS.
+  A razão por trás disso é que ele permite que o usuário controle a altura da foto panorâmica sem precisar defini-la explicitamente na função,
+  ao mesmo tempo mantendo a capacidade de resposta. <br> <br>
+  Veja como isso funciona:      <br>  <br>
+  Primeiro, o Panoramic Viewer irá envolver todas as fotos com um contêiner de invólucro para que ele possa conter toda a largura da foto sem
+  expandir o layout. Feito isso, o plug-in criará outro contêiner,
+  atribuirá a foto como plano de fundo desse contêiner usando o estilo de plano de fundo e tamanho de plano de fundo (ou responsivo) do CSS e
+  detectará uma ação de arrastar. <br>
+  Ao arrastar, em vez de mover o contêiner, o plug-in moverá a posição de plano de fundo e, como tudo está sendo movido por CSS, podemos controlar
+  o tempo de animação e o comportamento de suavização sem tocar na parte JS. <br>
+<br><br>
+
+  <!-- COLOCAR A DEMONSTRAÇÃO -->
+      <div class="panorama">  <!-- Crie a div com uma classe chamada panorama -->
+          <img src="http://www.thepetedesign.com/demos/panorama_viewer/demo_photo5.jpg" alt="panorama1"> <!-- Dentro da div insira a tag img e coloque sua imagem  -->
+      </div>     <!-- Esse é o fim da div -->
+ <!-- FIM DA DEMONSTRAÇÃO -->
+ <br> <br><br>
+   E é assim que o plug-in funciona.  Agora, você terá uma foto panorâmica interativa incorporada em seu site.
+<br> <br><br><br>
+    <h5 class="display-4">Tutorial do Jquery Panorama Viwer</h5> <br><br>
+   Essa é a versão do jquery usada para que o plugin funcione, insira
+    <a href="http://code.jquery.com/jquery-1.9.1.js" target="_blank">esse código de jquery</a>. É preciso que você crie esses arquivos na pasta do seu projeto
+    jQuery.panorama_viewer.js <a href="https://github.com/peachananr/panorama_viewer/blob/master/jquery.panorama_viewer.js" target="_blank"> (disponível aqui) </a>
+    e  panorama_viewer.css<a href="https://github.com/peachananr/panorama_viewer/blob/master/panorama_viewer.css" target="_blank"> (disponível aqui)</a>
+     na <code>&lt;head&gt;</code> do seu documento. <br> <br>
+     Seu documento deve estar assim (pressume que a importação do jquery já estja feita): <br> <br>
+     <div style="background:#f0f0f0;overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em"><table><tr><td><pre style="margin:0;line-height:125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+ 10</pre></td><td><pre style="margin:0;line-height:125%">       <span style="color:#60a0b0;font-style:italic">&lt;!-- Toda importação necessária para que o plugin funcione --&gt;</span>
+
+    <span style="color:#60a0b0;font-style:italic">&lt;!-- o código está escrito na versão 1.9.1 do jquery por isso importe exatamente essa versão (o código está comentado em inglês) --&gt;</span>
+    <span style="color:#062873;font-weight:bold">&lt;script </span><span style="color:#4070a0">type=&quot;text/javascript&quot;</span> <span style="color:#4070a0">src=&quot;<a href="http://code.jquery.com/jquery-1.9.1.js" target="_blank">http://code.jquery.com/<wbr>jquery-1.9.1.js</a>&quot;</span><span style="color:#062873;font-weight:bold">&gt;&lt;/script&gt;</span>
+
+    <span style="color:#60a0b0;font-style:italic">&lt;!-- Vá até o link e copie o código em um arquivo para a pasta do seu projeto (este aqui esta dentro da pasta js que está dentro da pasta do projeto) --&gt;</span>
+    <span style="color:#062873;font-weight:bold">&lt;script </span><span style="color:#4070a0">type=&quot;text/javascript&quot;</span> <span style="color:#4070a0">src=&quot;js/jquery.panorama_<wbr>viewer.js&quot;</span><span style="color:#062873;font-weight:bold">&gt;&lt;/script&gt;</span>
+
+    <span style="color:#60a0b0;font-style:italic">&lt;!-- Vá até o link e copie o código em um arquivo para a pasta do seu projeto (este aqui esta dentro da pasta css que está dentro da pasta do projeto) --&gt;</span>
+    <span style="color:#062873;font-weight:bold">&lt;link</span> <span style="color:#4070a0">href=&#39;css/panorama_viewer.css&#39;</span> <span style="color:#4070a0">rel=&#39;stylesheet&#39;</span> <span style="color:#4070a0">type=&#39;text/css&#39;</span><span style="color:#062873;font-weight:bold">&gt;</span>
+ </pre></td></tr></table></div>
+ <br><br>
+ Na <code>head</code> também insira esse código: <br><br>
+ <!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td><pre style="margin: 0; line-height: 125%">  <span style="color: #666666">&lt;</span>script<span style="color: #666666">&gt;</span>
+   $(<span style="color: #007020">document</span>).ready(<span style="color: #007020; font-weight: bold">function</span>(){
+      $(<span style="color: #4070a0">&quot;.panorama&quot;</span>).panorama_viewer({
+        repeat<span style="color: #666666">:</span> <span style="color: #007020; font-weight: bold">true</span>
+      });
+		});
+
+  <span style="color: #666666">&lt;</span><span style="border: 1px solid #FF0000">/script&gt;</span>
+</pre></td></tr></table></div>
+<br><br><br>
+
+   É desta maneira que suas fotos panorâmicas deve estar no seu Html inseridas em um contêiner (Não esqueça de alterar a fonte da imagem para suas fotos panorâmicas):
+   <br><br>
+   <!-- HTML generated using hilite.me --><div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"></pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #062873; font-weight: bold">&lt;div</span> <span style="color: #4070a0">class=&quot;panorama&quot;</span><span style="color: #062873; font-weight: bold">&gt;</span>  <span style="color: #60a0b0; font-style: italic">&lt;!-- Crie a div com uma classe chamada panorama --&gt;</span>
+       <span style="color: #062873; font-weight: bold">&lt;img</span> <span style="color: #4070a0">src=&quot;http://www.thepetedesign.com/demos/panorama_viewer/demo_photo5.jpg&quot;</span><span style="color: #062873; font-weight: bold">&gt;</span>  <span style="color: #60a0b0; font-style: italic">&lt;!-- Dentro da div insira a tag img e coloque sua imagem  --&gt;</span>
+   <span style="color: #062873; font-weight: bold">&lt;/div&gt;</span> <span style="color: #60a0b0; font-style: italic">&lt;!-- Esse é o fim da div --&gt;</span>
+   </pre></td></tr></table></div>
+<br> <br>
+
+<br>
+Pronto!!! É tudo o que você precisa fazer para adicionar uma foto panorâmica ao seu website. <br> <br>
+Essas são possiveís alterações com todas as opções disponíveis:
+<br> <br>
+<!-- HTML generated using hilite.me -->
+<div style="background: #f0f0f0; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7</pre></td><td><pre style="margin: 0; line-height: 125%">$(<span style="color: #4070a0">&quot;.panorama&quot;</span>).panorama_viewer({
+    repeat<span style="color: #666666">:</span> <span style="color: #007020; font-weight: bold">false</span>,
+    direction<span style="color: #666666">:</span> <span style="color: #4070a0">&quot;horizontal&quot;</span>,
+    animationTime<span style="color: #666666">:</span> <span style="color: #40a070">700</span>,
+    easing<span style="color: #666666">:</span> <span style="color: #4070a0">&quot;ease-out&quot;</span>,
+    overlay<span style="color: #666666">:</span> <span style="color: #007020; font-weight: bold">true</span>
+  });
+</pre></td></tr></table></div> <br> <br>
+
+<b>repeat</b>: se você tem uma foto panorâmica 360 perfeita e deseja que o usuário possa girar sem
+estar limitado pelas dimensões da foto, defina-a como true e o fundo se repetirá para sempre.
+O valor padrão é <b class="text-danger">false</b> (falso). <br>
+<b>direction</b>: caso você tenha uma impressionante foto panorâmica 360 vertical,
+você pode definir essa opção como vertical para que o espectador possa rolar para cima em vez
+de para o lado. O valor padrão é <b class="text-danger">horizontal</b>. <br>
+<b>animationTime</b>: Você pode definir quanto tempo a animação de atenuação irá durar com essa opção.
+A opção aceita valores em milissegundos (sem a unidade ms).
+Mude para 0 se quiser que o arrasto seja instantâneo. O valor padrão é <b class="text-danger">700</b>. <br>
+<b>easing</b>: Você pode definir sua opção de atenuação aqui.
+Esta opção aceita a função usual de temporização de transição do CSS3.
+As opções disponíveis são <b class="text-danger">“ease” </b>(“facilidade”), <b class="text-danger">“linear”</b> (“linear”) ,<b class="text-danger">“ease-in”</b> (“facilidade de entrada”), <b class="text-danger">“ease-out”</b> ( “facilidade de saída”), <b class="text-danger">“ease-in-out”</b> , e  <b class="text-danger">“cubic-bezier(…))”</b>.
+O valor padrão é <b class="text-danger">“ease-out”</b>. <br>
+<b>overlay</b>: para tornar a interação clara para o usuário,
+foi adicionada uma sobreposição para indicar que esta é uma foto panorâmica.
+Se você quiser desativar isso, alterne essa opção para <b class="text-danger">false</b>.
+O valor padrão é <b class="text-danger">true</b>. <br>
+ <br> <br>
+
+   <h5 class="display-4">Mais fotos panorâmicas...</h5> <br><br>
+   <div class="panorama">  <!-- Crie a div com uma classe chamada panorama -->
+       <img src="https://images.pexels.com/photos/358482/pexels-photo-358482.jpeg?auto=compress&cs=tinysrgb&h=350" alt="panorama2"> <!-- Dentro da div insira a tag img e coloque sua imagem  -->
+   </div> <br><br><br><br>
+   <div class="panorama">  <!-- Crie a div com uma classe chamada panorama -->
+       <img src="https://images.pexels.com/photos/157330/pexels-photo-157330.jpeg?auto=compress&cs=tinysrgb&h=350" alt="panorama3"> <!-- Dentro da div insira a tag img e coloque sua imagem  -->
+   </div><br><br><br><br>
+   <div class="panorama">  <!-- Crie a div com uma classe chamada panorama -->
+       <img src="https://images.pexels.com/photos/165677/pexels-photo-165677.jpeg?auto=compress&cs=tinysrgb&h=350" alt="panorama4"> <!-- Dentro da div insira a tag img e coloque sua imagem  -->
+   </div><br><br><br><br>
+   <div class="panorama">  <!-- Crie a div com uma classe chamada panorama -->
+       <img src="https://images.pexels.com/photos/356830/pexels-photo-356830.jpeg?auto=compress&cs=tinysrgb&h=350" alt="panorama5"> <!-- Dentro da div insira a tag img e coloque sua imagem  -->
+   </div><br><br><br><br>
+   <div class="panorama">  <!-- Crie a div com uma classe chamada panorama -->
+     <img src="https://images.pexels.com/photos/784364/pexels-photo-784364.jpeg?auto=compress&cs=tinysrgb&h=350" alt="panorama6">  <!-- Dentro da div insira a tag img e coloque sua imagem  -->
+   </div> <!-- Esse é o fim da div -->
+
+
+
+</main>
+
+
+    <br><br>
+
+
+    <!-- Rodapé -->
+    <footer class="footer">
+
+        <div style="background-color:  #343a40;">
+          <div class="container">
+
+        <div class="footer text-center py-3">
+          <span class="text-muted">Desenvolvido por Elisariane.</span>
+
+        </div>
+        </div>
+        </div>
+
+      </footer>
+
+  </body>
+</html>
